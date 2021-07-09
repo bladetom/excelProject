@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.excel.mapper.NanUniversityMapper">
+
+    <insert id="batchSave" parameterType="java.util.List">
+        INSERT INTO nanUniversity (
+        department,major,studyMethod,politics,foreignLanguage,pro_course1,pro_course2,totalScores,remark)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.department},#{item.major},#{item.studyMethod},#{item.politics},#{item.foreignLanguage},#{item.pro_course1},#{item.pro_course2},#{item.totalScores},#{item.remark},)
+        </foreach>
+    </insert>
+
+</mapper>
